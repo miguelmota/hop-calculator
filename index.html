@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes">
+  <title>Hop calculator</title>
+  <style>
+    form {
+      display: block;
+      margin-bottom: 1rem;
+    }
+    form div {
+      margin-bottom: 0.5rem;
+    }
+    label {
+      display: block;
+    }
+    pre {
+      display: inline-block;
+      font-size: 1rem;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hop Calculator</h1>
+  <form id="form">
+    <div>
+      <label>Amount In<label>
+      <input type="text" id="amountIn" placeholder="100" value="100">
+    </div>
+    <div>
+      <label>AMM Fee <abbr title="Basis points">BPS</abbr><label>
+      <input type="text" id="ammFeeBps" placeholder="4" value="4"> <span id="ammFeePercent"></span>
+    </div>
+    <div>
+      <label>Bonder Fee <abbr title="Basis points">BPS</abbr><label>
+      <input type="text" id="bonderFeeBps" placeholder="2" value="2"> <span id="bonderFeePercent"></span>
+    </div>
+    <div>
+      <label>Slippage Tolerance %<label>
+      <input type="text" id="slippageTolerance" placeholder="1" value="1"> <span id="slippageTolerancePercent"></span>
+    </div>
+    <div>
+      <label>Token Decimals<label>
+      <input type="text" id="decimals" placeholder="6" value="6">
+    </div>
+    <div>
+      <label>Deadline Minutes<label>
+      <input type="text" id="deadlineMinutes" placeholder="6" value="30">
+    </div>
+    <div>
+      <button type="submit">Calculate</button>
+    </div>
+    <div>
+      <output id="output"></output>
+    </div>
+  </div>
+  <script src="./lib/ethers-5.0.umd.min.js"></script>
+  <script src="main.js"></script>
+  <a href="https://github.com/miguelmota/hop-calculator" target="_blank"><img style="position: fixed; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+</body>
+</html>
