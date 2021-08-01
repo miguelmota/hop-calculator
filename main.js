@@ -73,19 +73,19 @@ function calculate () {
   const parsedBonderFee = BigNumber.from(parseUnits((bonderFeeDecimals * amountIn).toString(), decimals))
   const parsedSlippageToleranceAmount = BigNumber.from(parseUnits((slippageToleranceDecimals * amountIn).toString(), decimals))
   const parsedAmountOutMin = parsedAmountIn.sub(parsedSlippageToleranceAmount).sub(parsedAmmFeeAmount)
-  const deadline = ((Date.now() / 1000) + (deadlineMinutes * 60)) | 0
+  const deadline = BigNumber.from(((Date.now() / 1000) + (deadlineMinutes * 60)) | 0)
 
   console.log(`parsedAmountIn: ${parsedAmountIn.toString()}`)
   console.log(`parsedBonderFee: ${parsedBonderFee.toString()}`)
   console.log(`parsedSlippageToleranceAmount: ${parsedSlippageToleranceAmount.toString()}`)
   console.log(`parsedAmountOutMin: ${parsedAmountOutMin.toString()}`)
-  console.log(`deadline: ${deadline}`)
+  console.log(`deadline: ${deadline.toString()}`)
 
   $output.innerHTML = `
-<div>amountIn: <pre>${parsedAmountIn.toString()}</pre></div>
-<div>amountOutMin: <pre>${parsedAmountOutMin.toString()}</pre></div>
-<div>bonderFee: <pre>${parsedBonderFee.toString()}</pre></div>
-<div>deadline: <pre>${deadline}</pre></div>
+<div>amountIn: <pre>${parsedAmountIn.toString()}</pre> (<pre>${parsedAmountIn.toHexString()}</pre>)</div>
+<div>amountOutMin: <pre>${parsedAmountOutMin.toString()}</pre> (<pre>${parsedAmountOutMin.toHexString()}</pre>)</div>
+<div>bonderFee: <pre>${parsedBonderFee.toString()}</pre> (<pre>${parsedBonderFee.toHexString()}</pre>)</div>
+<div>deadline: <pre>${deadline.toString()}</pre> (<pre>${deadline.toHexString()}</pre>)</div>
 `
 }
 
